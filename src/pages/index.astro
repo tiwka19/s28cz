@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/Hero.astro'
+import Bonus from '../components/Bonus.astro'
+import Benefits from '../components/Benefits.astro'
+import Games from '../components/Games.astro'
+import SecondBonus from '../components/SecondBonus.astro'
+import Faq from '../components/Faq';
+---
+
+<Layout title="Welcome to Astro.">
+  <Hero />
+  <Bonus />
+  <Benefits />
+  <Games />
+  <SecondBonus />
+  <Faq client:visible />
+</Layout>

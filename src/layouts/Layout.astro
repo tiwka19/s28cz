@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string
+}
+
+import '@fontsource/open-sans/400.css'
+import '@fontsource/open-sans/600.css'
+import '@fontsource/open-sans/700.css'
+import '@fontsource/open-sans/800.css'
+
+const { title } = Astro.props
+
+import Header from './Header.astro'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-body text-white/75 h-screen text-white text-lg">
+    <Header />
+    <main class="py-24 overflow-clip">
+      <slot />
+    </main>
+    <!-- <script src='../main.js'></script> -->
+  </body>
+</html>

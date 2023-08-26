@@ -1,0 +1,103 @@
+---
+import {
+	Astronav,
+	MenuItems,
+	MenuIcon,
+	Dropdown,
+	DropdownItems,
+} from 'astro-navbar'
+
+import { Image, getImage } from 'astro:assets'
+import { Icon } from 'astro-icon'
+import logo from '../assets/logo.svg'
+
+const links = [
+	{ url: '/', label: 'Home' },
+	{ url: '/articles/', label: 'Articles' },
+	{ url: '/app/', label: 'App' },
+]
+
+const pathname = new URL(Astro.request.url).pathname
+const currentPath = pathname.replace(/^\/+|\/+$/g, '')
+---
+
+<header
+	class='fixed z-50 w-full top-0 left-0 py-4 transition-colors bg-placeholder sm:rounded-b-[30px]'
+>
+	<div class='container px-4'>
+		<Astronav>
+			<div class='xl:flex justify-between items-center gap-5'>
+				<div class='flex justify-between items-center gap-5'>
+					<div class='flex items-center gap-5'>
+						<a href='/'> <Image src={logo} alt='logo' /></a>
+						<Icon name='cif:cz' class='w-6 h-6 rounded' />
+					</div>
+
+					<div class='flex items-center gap-5 xl:hidden'>
+						<button
+							class='px-5 py-2 hidden md:block leading-6 font-medium rounded-xl text-xl border-primary border hover:bg-primary hover:text-black transition-all'
+							>Login
+						</button>
+						<div class='block xl:hidden'>
+							<MenuIcon class='w-6 h-6' />
+						</div>
+					</div>
+				</div>
+
+				<MenuItems
+					class='hidden z-10 bg-placeholder mt-5 xl:mt-0 lg:bg-transparent xl:flex xl:relative rounded-xl py-7 px-5 xl:py-0 xl:px-0'
+				>
+					<ul class='flex flex-col xl:flex-row gap-7'>
+						{
+							links.map(link => (
+								<li class='font-medium text-xl hover:text-primary'>
+									<a
+										href={link.url}
+										class={
+											currentPath === link.url.replace(/^\/+|\/+$/g, '')
+												? 'text-primary'
+												: ''
+										}
+									>
+										{link.label}{' '}
+									</a>
+								</li>
+							))
+						}
+						<li class='font-medium text-xl'>
+							<Dropdown class='group'>
+								<button
+									class='flex items-center gap-1 group-open:text-primary hover:text-primary'
+								>
+									Dropdown button
+									<Icon
+										name='bi:arrow-down-short'
+										class='w-8 h-8 group-open:rotate-180 transition-transform'
+									/>
+								</button>
+								<DropdownItems class='relative'>
+									<div
+										class='xl:absolute top-full xl:mt-5 bg-placeholder sm:border-2 sm:border-primary xl:drop-shadow-lg p-4 rounded-lg w-auto whitespace-nowrap'
+									>
+										<ul class='flex flex-col gap-2'>
+											<li class='hover:text-primary'>Menu 1</li>
+											<li class='hover:text-primary'>Menu 2</li>
+											<li class='hover:text-primary'>Menu 3</li>
+										</ul>
+									</div>
+								</DropdownItems>
+							</Dropdown>
+						</li>
+					</ul>
+				</MenuItems>
+
+				<div class='xl:flex items-center gap-5 hidden'>
+					<button
+						class='goto py-2 px-10 border-2 border-primary font-medium rounded-xl hover:bg-primary text-xl transition-colors'
+						>Login</button
+					>
+				</div>
+			</div>
+		</Astronav>
+	</div>
+</header>

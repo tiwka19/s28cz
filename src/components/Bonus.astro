@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets'
+import bonusImage from '../assets/rabbit.png'
+---
+
+<div class="container px-5 py-10 z-10 relative">
+  <div class="flex flex-col md:flex-row items-center gap-5 sm:gap-10">
+    <div>
+      <h2 class="text-primary text-4xl italic mb-5 font-extrabold">Um bônus de depósito</h2>
+      <p class="mb-5">
+        Mostbet bukmeyker kompaniyasi 2009-yilda tashkil topib oʻn yil ichida bozor ichida oʼzini ishonchli va halol bukmeyker sifatida tavsiya qildi. Mostbet brendining huquqlari StarBet N.V.
+        kompaniyasiga tegishli boʻlib, uning ofisi Kiprning poytaxti Nikosiyada joylashgandir. Bizning kompaniyamiz eng koʻp pul tikish bukmeykeri va biz 93 mamlakatda faol koʼrsatib, qaʻrib 1
+        milliondan ortiq oʼyinchini birlashtiramiz va kuniga 800 mingdan ortiq pul tikiladi.
+      </p>
+      <p>
+        Mostbet zamonaviy, qulay va albatta funksonial pul tikish sayti boʻlib, u yerda siz oson va tushunarli tarizda pul tikishingiz mumkindir. Undan tashqari, bukmeyker oʼyinchilar uchun
+        onlayn-kazinoni tashrif buyurish va har kungi totalizatorda sovrin yutib olish imkoniyatini bergan.
+      </p>
+    </div>
+    <Image src={bonusImage} alt="hero" class='max-w-[300px] sm:max-w-[400px] xl:max-w-full' quality={100} />
+  </div>
+</div>

@@ -1,0 +1,34 @@
+---
+import heroBg from '../assets/hero-bg.png'
+import { Icon } from 'astro-icon'
+import { Image, getImage } from 'astro:assets'
+import heroCard from '../assets/hero-cards.png'
+const optimizedBackgroundImage = await getImage({ src: heroBg, quality: 100 })
+---
+
+<div class="bg-contain bg-no-repeat" style={`background-image: url('${optimizedBackgroundImage.src}')`}>
+  <div class="py-[150px] relative">
+    <div class="container px-5 hero relative">
+      <h1 class="hero-title text-center text-6xl sm:text-8xl italic font-extrabold mb-5">Um bônus de depósito</h1>
+      <p class="text-2xl sm:text-3xl sm:max-w-[650px] mx-auto text-center mb-14">Receba até +500% em suas contas de bônus de cassino e apostas</p>
+      <a href="#" class="goto hero-button w-full block text-center text-2xl font-bold sm:w-[350px] mx-auto py-4 rounded-xl mb-10">Receba</a>
+      <Image src={heroCard} alt="hero" class="lg:max-w-[1024px] mx-auto" />
+      <div class="absolute -bottom-56 pointer-events-none left-1/2 -translate-x-1/2">
+        <Icon name="hero-mask" class="h-[800px] w-auto" />
+      </div>
+    </div>
+  </div>
+
+  <style lang="scss">
+    .hero-title {
+      background: linear-gradient(139deg, #12b1eb 0%, #0995f3 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-button {
+      background: linear-gradient(180deg, #12b1eb 0%, #0a96f3 100%);
+    }
+  </style>
+</div>

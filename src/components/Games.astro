@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets'
+
+const games = [
+  { url: await import('../assets/games/game-1.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-2.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-3.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-4.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-5.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-6.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-8.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-9.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-10.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-11.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-12.png'), alt: 'mostbet game' },
+  { url: await import('../assets/games/game-13.png'), alt: 'mostbet game' },
+]
+---
+
+<div class="container px-5 py-10">
+  <h2 class="text-primary text-4xl italic mb-10 font-extrabold text-center">TOP O'YINLAR</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5 mb-10">
+    {
+      games.map((game) => (
+        <a href="#">
+          <Image src={game.url.default} class="w-full" quality={100} format="webp" alt={game.alt} />
+        </a>
+      ))
+    }
+  </div>
+  <a href="#" class="goto text-white hero-button w-full block text-center text-2xl font-bold sm:w-[350px] mx-auto py-4 rounded-xl mb-10">Play</a>
+</div>
+
+<style>
+  .hero-button {
+    background: linear-gradient(180deg, #12b1eb 0%, #0a96f3 100%);
+  }
+</style>
