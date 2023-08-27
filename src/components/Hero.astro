@@ -4,31 +4,74 @@ import { Icon } from 'astro-icon'
 import { Image, getImage } from 'astro:assets'
 import heroCard from '../assets/hero-cards.png'
 const optimizedBackgroundImage = await getImage({ src: heroBg, quality: 100 })
+const { isDecor = false } = Astro.props
 ---
 
-<div class="bg-contain bg-no-repeat" style={`background-image: url('${optimizedBackgroundImage.src}')`}>
-  <div class="py-[150px] relative">
-    <div class="container px-5 hero relative">
-      <h1 class="hero-title text-center text-6xl sm:text-8xl italic font-extrabold mb-5">Um bônus de depósito</h1>
+<div
+  class:list={[
+    'bg-cover bg-center md:bg-contain md:bg-top bg-no-repeat',
+    {
+      'md:bg-cover content': !isDecor,
+    },
+  ]}
+  style={`background-image: url('${optimizedBackgroundImage.src}')`}
+>
+  <div class="py-[50px] lg:py-[150px] relative z-1">
+    <div class="container px-5 hero">
+      <h1 class="hero-title text-center text-5xl md:text-6xl lg:text-8xl italic font-extrabold mb-5">Um bônus de depósito</h1>
       <p class="text-2xl sm:text-3xl sm:max-w-[650px] mx-auto text-center mb-14">Receba até +500% em suas contas de bônus de cassino e apostas</p>
-      <a href="#" class="goto hero-button w-full block text-center text-2xl font-bold sm:w-[350px] mx-auto py-4 rounded-xl mb-10">Receba</a>
-      <Image src={heroCard} alt="hero" class="lg:max-w-[1024px] mx-auto" />
-      <div class="absolute -bottom-56 pointer-events-none left-1/2 -translate-x-1/2">
-        <Icon name="hero-mask" class="h-[800px] w-auto" />
-      </div>
+      <a
+        href="#"
+        class:list={[
+          'goto text-white hero-button relative z-10 w-full block text-center text-2xl font-bold sm:w-[350px] mx-auto py-4 rounded-xl mb-10',
+          {
+            'mb-0': !isDecor,
+          },
+        ]}
+        >Receba<a>
+          <div
+            class:list={[
+              {
+                hidden: !isDecor,
+              },
+            ]}
+          >
+            <Image src={heroCard} alt="hero" class="lg:max-w-[1024px] mx-auto" />
+            <div class="absolute -bottom-56 pointer-events-none left-1/2 -translate-x-1/2">
+              <Icon name="hero-mask" class="hidden md:block h-[800px] w-auto" />
+            </div>
+          </div>
+        </a>
+      </a>
     </div>
   </div>
-
-  <style lang="scss">
-    .hero-title {
-      background: linear-gradient(139deg, #12b1eb 0%, #0995f3 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-button {
-      background: linear-gradient(180deg, #12b1eb 0%, #0a96f3 100%);
-    }
-  </style>
 </div>
+
+<style lang="scss">
+  .content .hero {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      background: linear-gradient(180deg, #151921 0%, rgba(21, 25, 33, 0) 100%);
+      transform: rotate(-180deg);
+      width: 100%;
+      height: 300px;
+      pointer-events: none;
+      @media (max-width: (992px)) {
+        display: none;
+      }
+    }
+  }
+  .hero-title {
+    background: linear-gradient(139deg, #12b1eb 0%, #0995f3 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-button {
+    background: linear-gradient(180deg, #12b1eb 0%, #0a96f3 100%);
+  }
+</style>

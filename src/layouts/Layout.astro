@@ -10,13 +10,17 @@ import '@fontsource/open-sans/800.css'
 
 const { title } = Astro.props
 
+import { ViewTransitions } from 'astro:transitions'
+
 import Header from './Header.astro'
+import Footer from './Footer.astro'
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <ViewTransitions />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -25,9 +29,10 @@ import Header from './Header.astro'
   </head>
   <body class="bg-body text-white/75 h-screen text-white text-lg">
     <Header />
-    <main class="py-24 overflow-clip">
+    <main class="py-24 overflow-clip" transition:animate="slide">
       <slot />
     </main>
+    <Footer />
     <!-- <script src='../main.js'></script> -->
   </body>
 </html>

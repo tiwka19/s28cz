@@ -1,0 +1,75 @@
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components'
+import { Image } from 'astro:assets'
+import faqImage from '../assets/faq.png'
+---
+
+<div
+	class='container flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10'
+>
+	<div class='max-w-4xl'>
+		<h2 class='text-primary text-3xl sm:text-4xl italic mb-5 sm:mb-10 font-extrabold text-center uppercase'> Faq </h2>
+		<Accordion>
+			<AccordionItem header='A 1win é segura para jogar no Brasil?'>
+				<p>
+					Sim, usamos todos os métodos modernos de segurança da informação e
+					armazenamos dados em servidores criptografados SSL, o que proporciona
+					a máxima segurança.
+				</p>
+				<a href='#'>Tab to me!</a>
+			</AccordionItem>
+			<AccordionItem header='A 1win é segura para jogar no Brasil?'>
+				<p>
+					Sim, usamos todos os métodos modernos de segurança da informação e
+					armazenamos dados em servidores criptografados SSL, o que proporciona
+					a máxima segurança.
+				</p>
+				<a href='#'>Tab to me!</a>
+			</AccordionItem>
+			<AccordionItem header='A 1win é segura para jogar no Brasil?'>
+				<p>
+					Sim, usamos todos os métodos modernos de segurança da informação e
+					armazenamos dados em servidores criptografados SSL, o que proporciona
+					a máxima segurança.
+				</p>
+				<a href='#'>Tab to me!</a>
+			</AccordionItem>
+			<AccordionItem header='A 1win é segura para jogar no Brasil?'>
+				<p>
+					Sim, usamos todos os métodos modernos de segurança da informação e
+					armazenamos dados em servidores criptografados SSL, o que proporciona
+					a máxima segurança.
+				</p>
+				<a href='#'>Tab to me!</a>
+			</AccordionItem>
+			<AccordionItem header='A 1win é segura para jogar no Brasil?'>
+				<p>
+					Sim, usamos todos os métodos modernos de segurança da informação e
+					armazenamos dados em servidores criptografados SSL, o que proporciona
+					a máxima segurança.
+				</p>
+				<a href='#'>Tab to me!</a>
+			</AccordionItem>
+		</Accordion>
+	</div>
+
+	<Image src={faqImage} alt='image' class='max-w-[250px] lg:max-w-full' />
+</div>
+
+<style lang='scss' is:global>
+	.accordion__header {
+		text-align: start;
+		border: none !important;
+		box-shadow: none !important;
+		@apply text-xl md:text-2xl font-semibold text-white text-start gap-10 hover:text-primary;
+	}
+	.accordion__item.is-active button {
+		@apply text-primary;
+	}
+	.accordion__panel {
+		border: none !important;
+	}
+	.panel__inner {
+		padding: 0 15px 15px 15px !important;
+	}
+</style>

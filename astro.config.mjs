@@ -7,7 +7,8 @@ import react from "@astrojs/react";
 export default defineConfig({
   trailingSlash: 'always',
   experimental: {
-    assets: true
+    assets: true,
+    viewTransitions: true
   },
   integrations: [tailwind(), react()]
 });

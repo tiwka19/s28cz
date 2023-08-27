@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Hero from '../components/Hero.astro'
+import { Image } from 'astro:assets'
+import bonusImage from '../assets/mobile.png'
+import googlePlay from '../assets/play-market.png'
+import appStore from '../assets/app-store.png'
+---
+
+<Layout title="Welcome to Astro.">
+  <Hero />
+
+  <div class="container px-5 py-10 z-10 relative">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+      <div class="relative overflow-hidden bonus-image order-last lg:order-first">
+        <Image src={bonusImage} alt="hero" class="max-w-[300px] sm:max-w-[400px] xl:max-w-full" quality={100} />
+      </div>
+      <div class="max-w-4xl">
+        <h2 class="text-primary text-3xl sm:text-4xl italic mb-5 sm:mb-10 font-extrabold text-center">Um bônus de depósito</h2>
+        <p class="mb-5 sm:mb-10">
+          Mostbet bukmeyker kompaniyasi 2009-yilda tashkil topib oʻn yil ichida bozor ichida oʼzini ishonchli va halol bukmeyker sifatida tavsiya qildi. Mostbet brendining huquqlari StarBet N.V.
+          kompaniyasiga tegishli boʻlib, uning ofisi Kiprning poytaxti Nikosiyada joylashgandir. Bizning kompaniyamiz eng koʻp pul tikish bukmeykeri va biz 93 mamlakatda faol koʼrsatib, qaʻrib 1
+          milliondan ortiq oʼyinchini birlashtiramiz va kuniga 800 mingdan ortiq pul tikiladi.
+        </p>
+        <p class="mb-5 sm:mb-10">
+          Mostbet bukmeyker kompaniyasi 2009-yilda tashkil topib oʻn yil ichida bozor ichida oʼzini ishonchli va halol bukmeyker sifatida tavsiya qildi. Mostbet brendining huquqlari StarBet N.V.
+          kompaniyasiga tegishli boʻlib, uning ofisi Kiprning poytaxti Nikosiyada joylashgandir. Bizning kompaniyamiz eng koʻp pul tikish bukmeykeri va biz 93 mamlakatda faol koʼrsatib, qaʻrib 1
+          milliondan ortiq oʼyinchini birlashtiramiz va kuniga 800 mingdan ortiq pul tikiladi.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="goto hover:-translate-y-2 transition-transform">
+            <Image src={googlePlay} alt="google-play" quality={100} />
+          </a>
+          <a href="#" class="goto hover:-translate-y-2 transition-transform">
+            <Image src={appStore} alt="app-store" quality={100} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .hero-button {
+      background: linear-gradient(180deg, #12b1eb 0%, #0a96f3 100%);
+    }
+  </style>
+</Layout>

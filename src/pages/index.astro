@@ -5,14 +5,14 @@ import Bonus from '../components/Bonus.astro'
 import Benefits from '../components/Benefits.astro'
 import Games from '../components/Games.astro'
 import SecondBonus from '../components/SecondBonus.astro'
-import Faq from '../components/Faq';
+import Faq from '../components/Faq.astro'
 ---
 
 <Layout title="Welcome to Astro.">
-  <Hero />
+  <Hero isDecor />
   <Bonus />
   <Benefits />
   <Games />
   <SecondBonus />
-  <Faq client:visible />
+  <Faq />
 </Layout>
